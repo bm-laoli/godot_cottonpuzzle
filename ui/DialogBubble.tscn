@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ui/defaul_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/UI/对话框把手.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/对话框点9图.9.png" type="Texture" id=3]
+[ext_resource path="res://ui/DialogBubble.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0.399999, 143, 131.6 )
+margin_left = 25.65
+margin_right = 25.65
+margin_top = 33.25
+margin_bottom = 31.35
+
+[node name="DialogBubble" type="Control"]
+script = ExtResource( 4 )
+
+[node name="Content" type="Label" parent="."]
+margin_left = 21.0
+margin_bottom = -21.0
+grow_vertical = 0
+rect_min_size = Vector2( 560, 0 )
+mouse_filter = 0
+custom_colors/font_color = Color( 0.2, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/normal = SubResource( 1 )
+text = "这是一段占位符"
+autowrap = true
+
+[node name="Handle" type="TextureRect" parent="."]
+grow_vertical = 0
+texture = ExtResource( 2 )
+flip_h = true
+
+[connection signal="gui_input" from="Content" to="." method="_on_Content_gui_input"]
