@@ -4,6 +4,13 @@ class_name SceneItem
 
 export var item: Resource setget set_item
 
+func _ready():
+	if Engine.editor_hint:
+		return
+
+	if Game.flags.has(_get_flgs()):
+		queue_free()
+
 func set_item(v: Item):
 	item = v
 	set_texture(item.scene_texture if item else null)
@@ -13,6 +20,9 @@ func set_item(v: Item):
 
 func _interact():
 	._interact()
+	
+	#存储一个被拾取的状态
+	Game.flags.add(_get_flgs())
 	
 	# 一个占位的假消失 这样可以做一个动画出来 直接让本体去动画 可能不安全
 	var sprite := Sprite.new()
@@ -26,3 +36,7 @@ func _interact():
 	tween.tween_callback(sprite, 'queue_free')
 	
 	queue_free()
+	
+
+func _get_flgs():
+	return "picked:" + item.resource_path.get_file()
