@@ -23,6 +23,7 @@ func _interact():
 	
 	#存储一个被拾取的状态
 	Game.flags.add(_get_flgs())
+	Game.inventory.add_item(item)
 	
 	# 一个占位的假消失 这样可以做一个动画出来 直接让本体去动画 可能不安全
 	var sprite := Sprite.new()

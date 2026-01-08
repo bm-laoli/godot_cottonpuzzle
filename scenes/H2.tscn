@@ -55,6 +55,7 @@ shape = SubResource( 2 )
 [node name="Granny" type="Area2D" parent="." index="3"]
 position = Vector2( -483, -125 )
 script = ExtResource( 4 )
+allow_item = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Granny" index="0"]
 position = Vector2( 74, 75 )

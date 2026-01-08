@@ -4,10 +4,13 @@ class_name Interactable
 
 signal interact
 
+export var allow_item := false
 export var texture: Texture setget set_texture
 
 func _input_event(viewport, event, shape_idx):
 	if not event.is_action_pressed("interact"):
+		return
+	if not allow_item and Game.inventory.active_item:
 		return
 
 	_interact()
