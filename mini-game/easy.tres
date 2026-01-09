@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://mini-game/H2AConfig.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+placements = PoolIntArray( 0, 0, 0, 0, 0, 0, 0 )
+connections = {
+0: [  ],
+1: [  ],
+2: [  ],
+3: [  ],
+4: [  ],
+5: [  ],
+6: [  ]
+}
