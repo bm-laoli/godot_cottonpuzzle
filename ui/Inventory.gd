@@ -11,7 +11,6 @@ onready var next = $ItemBar/Next
 onready var timer = $Label/Timer
 
 func _ready():
-	#测试代码
 	#Game.inventory.add_item(preload("res://items/key.tres"))
 	#Game.inventory.add_item(preload("res://items/mail.tres"))
 	

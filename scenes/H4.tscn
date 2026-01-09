@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/H4/H4.png" type="Texture" id=2]
 [ext_resource path="res://objects/Teleporter.gd" type="Script" id=3]
+[ext_resource path="res://MailBox.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 95, 157 )
@@ -18,3 +19,6 @@ target_path = "res://scenes/H2.tscn"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToH2" index="0"]
 position = Vector2( 291, 25 )
 shape = SubResource( 1 )
+
+[node name="MailBox" parent="." index="1" instance=ExtResource( 4 )]
+position = Vector2( 725, 460 )

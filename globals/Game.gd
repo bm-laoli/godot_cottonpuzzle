@@ -4,7 +4,7 @@ class Flags:
 	var _flags :=[]
 	signal changed
 	
-	func has(flag:String):
+	func has(flag:String) -> bool:
 		return flag in _flags
 		
 	func add(flag: String):
@@ -44,7 +44,7 @@ class Inventory:
 		
 		_items.remove(idx)
 		if _current_item_idx >= _items.size():
-			_current_item_idx =0
+			_current_item_idx =0 if _items else -1
 			
 		emit_signal("changed")
 		

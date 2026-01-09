@@ -34,19 +34,20 @@ script = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="."]
 margin_top = -1.0
-margin_right = 354.0
+margin_right = 773.562
 margin_bottom = 125.13
 custom_fonts/font = ExtResource( 1 )
 custom_styles/normal = SubResource( 1 )
-text = "道具描述"
+text = "道具描述123123123123123123123123"
 align = 1
 valign = 1
 
 [node name="Timer" type="Timer" parent="Label"]
 
 [node name="ItemBar" type="HBoxContainer" parent="."]
+margin_left = 419.0
 margin_top = 130.0
-margin_right = 354.0
+margin_right = 773.0
 margin_bottom = 340.0
 size_flags_horizontal = 8
 

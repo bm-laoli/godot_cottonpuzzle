@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "FlagSwitch",
+"language": "GDScript",
+"path": "res://objects/FlagSwitch.gd"
+}, {
 "base": "Area2D",
 "class": "Interactable",
 "language": "GDScript",
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://objects/Teleporter.gd"
 } ]
 _global_script_class_icons={
+"FlagSwitch": "",
 "Interactable": "",
 "Item": "",
 "SceneItem": "",
