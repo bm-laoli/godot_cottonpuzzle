@@ -1,6 +1,8 @@
 extends Sprite
 class_name Scene
 
+export(String , FILE, "*.mp3") var music_override := ""
+
 func _ready():
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)

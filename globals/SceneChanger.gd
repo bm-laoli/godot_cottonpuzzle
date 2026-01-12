@@ -4,6 +4,9 @@ onready var color_rect = $ColorRect
 signal game_entered
 signal game_exited
 
+func _ready():
+	_on_scene_changed(null, get_tree().current_scene)
+
 func change_scene(path:String):
 	var tween := create_tween()
 	tween.tween_callback(color_rect, "show")
@@ -20,7 +23,11 @@ func _change_scene(path: String):
 	root.remove_child(old_scene)
 	root.add_child(new_scene)
 	get_tree().current_scene = new_scene
-	
+	_on_scene_changed(old_scene, new_scene)
+	old_scene.queue_free()
+
+func _on_scene_changed(old_scene:Node, new_scene:Node):
+	# 游戏状态存盘
 	var was_in_game := old_scene is Scene
 	var is_in_game := new_scene is Scene
 	if was_in_game != is_in_game:
@@ -29,4 +36,8 @@ func _change_scene(path: String):
 		else:
 			emit_signal("game_exited")
 	
-	old_scene.queue_free()
+	# 游戏声音切换
+	var music := "res://assets/Music/OpenRoad.mp3"
+	if is_in_game and new_scene.music_override:
+		music = new_scene.music_override
+	SoundManger.play_music(music)
