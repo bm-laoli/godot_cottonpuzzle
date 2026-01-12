@@ -1,5 +1,5 @@
 extends Sprite
-
+class_name Scene
 
 func _ready():
 	var tween := create_tween()

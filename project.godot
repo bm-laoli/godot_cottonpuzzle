@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://items/item.gd"
 }, {
+"base": "Sprite",
+"class": "Scene",
+"language": "GDScript",
+"path": "res://scenes/Scene.gd"
+}, {
 "base": "Interactable",
 "class": "SceneItem",
 "language": "GDScript",
@@ -50,6 +55,7 @@ _global_script_class_icons={
 "H2AStone": "",
 "Interactable": "",
 "Item": "",
+"Scene": "",
 "SceneItem": "",
 "Teleporter": ""
 }

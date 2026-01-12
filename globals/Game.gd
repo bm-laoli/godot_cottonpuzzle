@@ -64,6 +64,8 @@ class Inventory:
 		emit_signal("changed")
 	
 	
+func back_to_title():
+	SceneChanger.change_scene("res://ui/TitleScreen.tscn")
 
 var flags := Flags.new()
 var inventory : =Inventory.new()
