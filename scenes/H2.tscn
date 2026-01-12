@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/Scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/H2/H2.png" type="Texture" id=2]
@@ -9,15 +9,17 @@
 [ext_resource path="res://objects/SceneItem.gd" type="Script" id=7]
 [ext_resource path="res://items/key.tres" type="Resource" id=8]
 [ext_resource path="res://assets/H2/key.png" type="Texture" id=9]
+[ext_resource path="res://objects/FlagSwitch.gd" type="Script" id=10]
+[ext_resource path="res://assets/H2/door.png" type="Texture" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 57.0
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 96, 185 )
-
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 160.75, 280 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 96, 185 )
 
 [node name="Background" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
@@ -41,16 +43,7 @@ target_path = "res://scenes/H4.tscn"
 position = Vector2( 0, -2 )
 shape = SubResource( 1 )
 
-[node name="ToH3" type="Area2D" parent="." index="2"]
-position = Vector2( 31, -220 )
-script = ExtResource( 3 )
-target_path = "res://scenes/H3.tscn"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ToH3" index="0"]
-position = Vector2( 4, 0 )
-shape = SubResource( 2 )
-
-[node name="Granny" type="Area2D" parent="." index="3"]
+[node name="Granny" type="Area2D" parent="." index="2"]
 position = Vector2( -483, -125 )
 script = ExtResource( 4 )
 allow_item = true
@@ -66,10 +59,29 @@ margin_top = 218.0
 margin_right = 178.0
 margin_bottom = 218.0
 
-[node name="SceneItem" type="Area2D" parent="." index="4"]
+[node name="SceneItem" type="Area2D" parent="." index="3"]
 position = Vector2( 106, 470 )
 script = ExtResource( 7 )
 texture = ExtResource( 9 )
 item = ExtResource( 8 )
+
+[node name="FlagSwitch" type="Node2D" parent="." index="4"]
+script = ExtResource( 10 )
+flag = "h2a_unlocked"
+
+[node name="ToH2A" type="Area2D" parent="FlagSwitch" index="0"]
+position = Vector2( 21, -222 )
+script = ExtResource( 3 )
+texture = ExtResource( 11 )
+target_path = "res://scenes/H2A.tscn"
+
+[node name="ToH3" type="Area2D" parent="FlagSwitch" index="1"]
+position = Vector2( 31, -220 )
+script = ExtResource( 3 )
+target_path = "res://scenes/H3.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlagSwitch/ToH3" index="0"]
+position = Vector2( 4, 0 )
+shape = SubResource( 2 )
 
 [connection signal="interact" from="Granny" to="." method="_on_Granny_interact"]
